@@ -23,14 +23,10 @@
          var pattern = new RegExp(
                "<dt>(<input name=\"diary_id\"[^>]+>)?<a href=\"(view_diary\\.pl\\?id=\\d+&owner_id=\\d+)[^>]*>([^<]*)<\/a>",
                "ig");
-//         var pattern = new RegExp("<dt>(<input name=\"diary_id\"[^>]+>)?<a href=\"(view_diary\\.pl\\?id=(\\d+)&owner_id=\\d+)[^>]*>([^<]*)<\/a><span><a[^>]+>[^<]+</a></span><img[^<]+</dt>\n<dd>([^>]+)</dd>\n</dl>\n</div>\n.*\n<p>[^<]+</p>\n<div[^>]+>\n<ul>\n<li><a[^>]+>[^<]+</a></li>\n<li><a[^>]+>\u30b3\u30e1\u30f3\u30c8\uff08(\\d+)\uff09", "ig");
-
          var m;
          var c=0;
-//         while (m = pattern.exec(response.responseText)) {
            while ((m = pattern.exec(response.responseText)) && (c++ < lastDiaryNum)) {
             s += '<li><a href="' + m[2] + '">' + m[3] + '</a>\n';
-//               s += '<li><a href="'+ m[2] + '">' + m[4] +'('+ m[6] +')'+'</a>\n';
            }
          if (s != "") {
             s = "<ul>\n" + s + "</ul>\n";
